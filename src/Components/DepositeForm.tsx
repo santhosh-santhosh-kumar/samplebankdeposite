@@ -1,8 +1,8 @@
-import React from "react";
+
 import { useFormik } from "formik";
 import { RootState, AppDispatch } from '../Store';
 import { useDispatch, useSelector } from 'react-redux';
-import { authentication, deposite } from "../Slices/UserData";
+import {  deposite } from "../Slices/UserData";
 import { FaXmark } from "react-icons/fa6";
 
 interface LoginFormValues {
@@ -10,9 +10,8 @@ interface LoginFormValues {
   passkey: number;
 }
 
-const  DepositeForm = ({display,setDisplay}) => {
+const  DepositeForm = ({setDisplay}) => {
       const users = useSelector((state: RootState) => state.userData);
-      const passkeyStatus=useSelector((state: RootState) => state.userData.isPasskey);
             console.log(users)
             const dispatch = useDispatch<AppDispatch>();
   const formik = useFormik<LoginFormValues>({

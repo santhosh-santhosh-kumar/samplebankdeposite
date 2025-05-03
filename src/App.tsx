@@ -8,9 +8,6 @@ function App() {
   const users = useSelector((state: RootState) => state.userData.userDetails);
   console.log(users)
   const isLogin = useSelector((state: RootState) => state.userData.isLogin);
-  console.log("isLogin",isLogin)
-  const dispatch = useDispatch<AppDispatch>();
-
   return (
     <>
   <div className={`${isLogin ? "hidden" : "block"}`}>

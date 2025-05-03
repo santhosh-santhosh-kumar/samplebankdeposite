@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+
 import { RootState, AppDispatch } from '../Store';
 import { useDispatch, useSelector } from 'react-redux';
 import DepositeForm from './DepositeForm';
@@ -7,7 +7,6 @@ const UserDetails = () => {
       const [display,setDisplay]=useState(false)
       const users = useSelector((state: RootState) => state.userData.userDetails);
       console.log(users)
-      const dispatch = useDispatch<AppDispatch>();
   return (
     <div>
     <div className='flex justify-center gap-2 '>
@@ -37,6 +36,7 @@ const UserDetails = () => {
       <th className="border px-10 py-2">S.NO</th>
       <th className="border px-10 py-2">Date</th>
       <th className="border px-10 py-2">Amount</th>
+      <th className="border px-10 py-2">Total</th>
     </tr>
   </thead>
   <tbody>
@@ -46,6 +46,7 @@ const UserDetails = () => {
       <td className="border px-10 py-3">1</td>
       <td className="border px-10 py-3">{value.date}</td>
       <td className="border px-10 py-3">${value.amount}</td>
+      <td className="border px-10 py-3">${users.totalPayment}</td>
     </tr>
       </>
    })}
