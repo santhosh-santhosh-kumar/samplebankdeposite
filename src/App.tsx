@@ -1,8 +1,8 @@
 import "./App.css";
 import Login from "./Components/Login";
 import UserDetails from "./Components/UserDetails";
-import { RootState, AppDispatch } from './Store';
-import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from './Store';
+import {   useSelector } from 'react-redux';
 
 function App() {
   const users = useSelector((state: RootState) => state.userData.userDetails);

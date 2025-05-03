@@ -2,7 +2,7 @@
 import { useFormik } from "formik";
 import { RootState, AppDispatch } from '../Store';
 import { useDispatch, useSelector } from 'react-redux';
-import {  deposite } from "../Slices/UserData";
+import {  deposite, withDraw } from "../Slices/UserData";
 import { FaXmark } from "react-icons/fa6";
 
 interface LoginFormValues {
@@ -10,7 +10,7 @@ interface LoginFormValues {
   passkey: number;
 }
 
-const  DepositeForm = ({setDisplay}) => {
+const  WithDraw = ({setDisplay}) => {
       const users = useSelector((state: RootState) => state.userData);
             console.log(users)
             const dispatch = useDispatch<AppDispatch>();
@@ -22,7 +22,7 @@ const  DepositeForm = ({setDisplay}) => {
     onSubmit: (values) => {
       console.log("Login submitted", values);
       formik.resetForm()
-      dispatch(deposite(values))
+      dispatch(withDraw(values))
      
     },
   });
@@ -32,7 +32,7 @@ const  DepositeForm = ({setDisplay}) => {
         <div className="">
           <div className="border shadow-lg p-4 rounded-md">
             <p className="flex justify-center bg-[#7d3bf0] text-2xl text-white py-3 rounded-md">
-              Deposite Form
+              WithDraw Form
               
             </p>
             
@@ -82,4 +82,6 @@ const  DepositeForm = ({setDisplay}) => {
 };
 
 
-export default DepositeForm
+
+
+export default WithDraw
